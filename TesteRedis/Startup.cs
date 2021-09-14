@@ -35,7 +35,7 @@ namespace TesteRedis
             // Adding Redis Cache
             services.AddStackExchangeRedisCache(x =>
             {
-                x.Configuration = "redis str connection";
+                x.Configuration = "localhost,port: 6379,password=12345678";
             });
         }
 

@@ -16,7 +16,7 @@ namespace Services.Cache
         public async Task<T> GetFromCacheAsync<T>(string key)
         {
             var resultCache = await _distributedCache.GetAsync(key);
-            var converted = Encoding.UTF8.GetString(resultCache);
+            var converted = Encoding.UTF8.GetString(resultCache ?? Array.Empty<byte>());
 
             if (string.IsNullOrWhiteSpace(converted))
             {

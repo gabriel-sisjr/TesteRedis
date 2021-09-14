@@ -12,7 +12,7 @@ namespace TesteRedis.Controllers
         private readonly ICacheService _cacheService;
         public CacheController(ICacheService cacheService) => _cacheService = cacheService;
 
-        [HttpGet]
+        [HttpGet("{key}")]
         public async Task<IActionResult> Get(string key) => Ok(await _cacheService.GetFromCacheAsync<Retorno>(key));
     }
 }
